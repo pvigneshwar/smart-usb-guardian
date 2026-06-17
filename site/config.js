@@ -1,0 +1,6 @@
+window.SMART_USB_CONFIG = {
+  DEFAULT_API_URL: `${window.location.origin}/api`,
+  EVENTS_LIMIT: 250,
+  AUTO_REFRESH_MS: 5000,
+  CONNECTION_STALE_MS: 20000,
+};

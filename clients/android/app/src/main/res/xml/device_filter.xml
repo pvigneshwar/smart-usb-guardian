@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- USB Mass Storage class. Some phones may expose a different class.
+         If auto-launch does not appear, replace this element with <usb-device />
+         to match every attached USB device during testing. -->
+    <usb-device class="8" />
+</resources>

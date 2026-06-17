@@ -1,0 +1,7 @@
+{
+  "windows_client": "Open_Secure_USB.exe",
+  "android_app": "USBGuardianMobile.apk",
+  "built_at": "2026-06-15T19:02:10.8911447Z",
+  "usb_monitor": "USBMonitor.exe",
+  "api_url": "https://smart-usbguardian.netlify.app/api"
+}

@@ -1,0 +1,16 @@
+SMART USB GUARDIAN — NETLIFY-ONLY DEPLOY CHECKLIST
+
+[ ] 1. Extract SmartUSBGuardianNetlifyOnly.zip.
+[ ] 2. Push the extracted project root to a new GitHub repository.
+[ ] 3. Link that repository to the Netlify site smart-usb-guardian.
+[ ] 4. Confirm Build command: npm run build.
+[ ] 5. Confirm Publish directory: site.
+[ ] 6. Confirm Functions directory: netlify/functions.
+[ ] 7. Deploy and test /api/health.
+[ ] 8. Enable GitHub Actions read/write workflow permissions.
+[ ] 9. Run "Build Smart USB Guardian clients" in GitHub Actions.
+[ ] 10. Wait for generated binaries to be committed and Netlify to redeploy.
+[ ] 11. Create a new owner account.
+[ ] 12. Register the USB again and download a new usb_guardian.id.
+[ ] 13. Replace old USBGuardian.exe, USBMonitor.exe and Android APK.
+[ ] 14. Test Windows auto-launch, Android OTG, granted/denied access, location and deletion.

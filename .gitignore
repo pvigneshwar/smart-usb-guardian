@@ -1,0 +1,12 @@
+node_modules/
+.netlify/
+.DS_Store
+*.log
+clients/android/local.properties
+clients/android/.gradle/
+clients/android/.gradle-bootstrap/
+clients/android/app/build/
+clients/windows_usb_guardian/build/
+clients/windows_usb_guardian/dist/
+clients/windows_usb_monitor/build/
+clients/windows_usb_monitor/dist/

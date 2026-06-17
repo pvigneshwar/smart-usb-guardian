@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#070b18" name="theme-color"/>
+<meta content="dark" name="color-scheme"/>
+<meta content="Smart USB Guardian is a cross-platform portable storage protection and monitoring system for Windows and Android." name="description"/>
+<title>Smart USB Guardian | Portable Security Command Center</title>
+<link href="assets/logo.svg" rel="icon" type="image/svg+xml"/>
+<link href="assets/icon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="assets/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="manifest.webmanifest" rel="manifest"/>
+<link href="styles.css" rel="stylesheet"/>
+<link href="three-d.css" rel="stylesheet"/></head>
+<body><div aria-hidden="true" class="ambient-world">
+<div class="ambient-orb orb-one"></div>
+<div class="ambient-orb orb-two"></div>
+<div class="ambient-orb orb-three"></div>
+<div class="perspective-grid"></div>
+<div class="scanline"></div>
+</div>
+<section class="auth-screen" id="authScreen"><div class="auth-stage">
+<section class="project-intro reveal-up">
+<div class="project-badge"><span></span> PORTABLE SECURITY ECOSYSTEM</div>
+<h1>Secure every USB.<br/><em>See every access.</em></h1>
+<p class="intro-copy">Smart USB Guardian combines device identity, authenticated access, activity monitoring and encrypted storage into one cross-platform protection workflow.</p>
+<div aria-hidden="true" class="auth-visual" data-tilt="" data-tilt-strength="7">
+<div class="visual-halo halo-a"></div>
+<div class="visual-halo halo-b"></div>
+<div class="usb-model">
+<div class="usb-cap">
+<span></span><span></span><span></span><span></span>
+</div>
+<div class="usb-neck"></div>
+<div class="usb-body-3d">
+<div class="usb-face front"><div class="mini-shield">G</div><b>GUARDIAN</b><small>IDENTITY PROTECTED</small></div>
+<div class="usb-face back"></div>
+<div class="usb-face right"></div>
+<div class="usb-face left"></div>
+<div class="usb-face top"></div>
+<div class="usb-face bottom"></div>
+</div>
+</div>
+<div class="orbit-ring ring-one"><i></i></div>
+<div class="orbit-ring ring-two"><i></i></div>
+<div class="floating-chip chip-windows">WINDOWS</div>
+<div class="floating-chip chip-android">ANDROID OTG</div>
+<div class="floating-chip chip-vault">ENCRYPTED VAULT</div>
+</div>
+<div class="intro-features">
+<article><span>01</span><div><strong>Identity-aware</strong><small>Each registered pendrive receives a unique guardian identity.</small></div></article>
+<article><span>02</span><div><strong>Cross-platform</strong><small>Windows monitoring and Android OTG access reporting.</small></div></article>
+<article><span>03</span><div><strong>Access intelligence</strong><small>Granted, denied, connected and disconnected activity records.</small></div></article>
+</div>
+</section>
+<div class="auth-card-wrap reveal-up"><div class="auth-card">
+<div class="auth-brand">
+<img alt="" height="66" src="assets/logo.svg" width="66"/>
+<div>
+<p class="eyebrow">SECURE OWNER ACCESS</p>
+<h1>Smart USB Guardian</h1>
+<p>Enter the owner command center to monitor registered portable devices and access activity.</p>
+</div>
+</div>
+<div class="auth-tabs">
+<button class="auth-tab active" id="showLoginTab" type="button">Login</button>
+<button class="auth-tab" id="showSignupTab" type="button">Sign up</button>
+</div>
+<form class="auth-form active" id="loginForm">
+<label><span>Email address</span><input autocomplete="email" id="loginEmail" required="" type="email"/></label>
+<label><span>Password</span>
+<div class="password-field"><input autocomplete="current-password" id="loginPassword" required="" type="password"/><button data-toggle-password="loginPassword" type="button">Show</button></div>
+</label>
+<button class="primary-button" id="loginButton" type="submit">Login</button>
+</form>
+<form class="auth-form" id="signupForm">
+<label><span>Full name</span><input autocomplete="name" id="signupName" minlength="2" required=""/></label>
+<label><span>Email address</span><input autocomplete="email" id="signupEmail" required="" type="email"/></label>
+<label><span>Password</span>
+<div class="password-field"><input autocomplete="new-password" id="signupPassword" minlength="8" required="" type="password"/><button data-toggle-password="signupPassword" type="button">Show</button></div>
+</label>
+<label><span>Confirm password</span>
+<div class="password-field"><input autocomplete="new-password" id="signupConfirmPassword" minlength="8" required="" type="password"/><button data-toggle-password="signupConfirmPassword" type="button">Show</button>
+</div>
+</label>
+<button class="primary-button" id="signupButton" type="submit">Create account</button>
+</form>
+<p class="auth-note">Your account keeps device identities, access records and protection controls separated from other owners.</p>
+</div></div>
+</div></section>
+<div class="app-shell hidden" id="appShell">
+<aside class="sidebar" id="sidebar">
+<a aria-label="Smart USB Guardian home" class="brand" href="#dashboard">
+<img alt="" height="44" src="assets/logo.svg" width="44"/>
+<span>
+<strong>Smart USB</strong>
+<small>Guardian</small>
+</span>
+</a>
+<nav aria-label="Primary navigation" class="nav-list">
+<button class="nav-item active" data-page="dashboard">
+<span class="nav-icon">⌂</span><span>Dashboard</span>
+</button>
+<button class="nav-item" data-page="register">
+<span class="nav-icon">＋</span><span>Register USB</span>
+</button>
+<button class="nav-item" data-page="devices">
+<span class="nav-icon">▣</span><span>Registered Devices</span>
+</button>
+<button class="nav-item" data-page="logs">
+<span class="nav-icon">≣</span><span>Access Logs</span>
+</button>
+<button class="nav-item" data-page="alerts">
+<span class="nav-icon">!</span><span>Security Alerts</span>
+<span class="nav-count" id="navAlertCount">0</span>
+</button>
+<button class="nav-item" data-page="project">
+<span class="nav-icon">◇</span><span>Project Overview</span>
+</button><button class="nav-item" data-page="settings">
+<span class="nav-icon">⚙</span><span>Preferences</span>
+</button>
+</nav>
+<div class="sidebar-footer">
+<div class="connection-pill" id="sidebarConnection"><span class="status-dot offline"></span><div><strong>Protection standby</strong><small>Checking secure services…</small></div></div>
+</div>
+</aside>
+<div class="main-column">
+<header class="topbar">
+<button aria-label="Open navigation" class="icon-button mobile-menu" id="menuButton">☰</button>
+<div>
+<p class="page-kicker">PORTABLE SECURITY COMMAND CENTER</p>
+<h1 id="pageTitle">Dashboard</h1>
+</div>
+<div class="topbar-actions">
+<button class="icon-button" id="refreshButton" title="Refresh data">↻</button>
+<button aria-label="Owner profile" class="profile-button" data-go="settings" id="profileButton" type="button">
+<span class="avatar" id="profileAvatar">U</span>
+<span class="profile-copy"><strong id="profileName">USB Owner</strong><small id="profileEmail">Signed
+                in</small></span>
+</button>
+</div>
+</header>
+<main class="content">
+<section class="page active" data-title="Dashboard" id="page-dashboard">
+<div class="welcome-panel command-hero" data-tilt="" data-tilt-strength="2">
+<div class="hero-copy">
+<div class="project-badge"><span></span> ACTIVE PROTECTION WORKSPACE</div>
+<p class="eyebrow">SMART USB GUARDIAN</p>
+<h2>Portable storage protection with identity, visibility and control.</h2>
+<p>Monitor registered pendrives, verify access attempts, review device activity and manage protection from one immersive command center.</p>
+<div class="hero-actions">
+<button class="primary-button small" data-go="register" type="button">Register a USB</button>
+<button class="secondary-button small" data-go="project" type="button">Explore the project</button>
+</div>
+<div class="hero-tags"><span>Windows Monitor</span><span>Android OTG</span><span>Secure Identity</span><span>Encrypted Vault</span></div>
+</div>
+<div aria-hidden="true" class="guardian-core">
+<div class="core-aura"></div>
+<div class="core-orbit orbit-x"><i></i><i></i></div>
+<div class="core-orbit orbit-y"><i></i></div>
+<div class="core-orbit orbit-z"><i></i></div>
+<div class="core-cube">
+<div class="cube-face cube-front">G</div>
+<div class="cube-face cube-back">USB</div>
+<div class="cube-face cube-right">✓</div>
+<div class="cube-face cube-left">ID</div>
+<div class="cube-face cube-top">SEC</div>
+<div class="cube-face cube-bottom">24/7</div>
+</div>
+<div class="live-indicator" id="liveIndicator"><span></span>Live monitoring</div>
+</div>
+</div>
+<div class="metric-grid">
+<article class="metric-card tilt-card" data-tilt="" data-tilt-strength="3">
+<div class="metric-icon blue">▣</div>
+<div><span>Registered USBs</span><strong id="metricDevices">0</strong><small id="metricDevicesHint">No
+                  devices loaded</small></div>
+</article>
+<article class="metric-card tilt-card" data-tilt="" data-tilt-strength="3">
+<div class="metric-icon green">●</div>
+<div><span>Currently Connected</span><strong id="metricConnected">0</strong><small id="metricConnectedHint">No active hosts</small></div>
+</article>
+<article class="metric-card tilt-card" data-tilt="" data-tilt-strength="3">
+<div class="metric-icon cyan">✓</div>
+<div><span>Access Granted</span><strong id="metricGranted">0</strong><small>Successful
+                  authentications</small></div>
+</article>
+<article class="metric-card tilt-card" data-tilt="" data-tilt-strength="3">
+<div class="metric-icon red">×</div>
+<div><span>Access Denied</span><strong id="metricDenied">0</strong><small>Rejected login attempts</small>
+</div>
+</article>
+<article class="metric-card tilt-card" data-tilt="" data-tilt-strength="3">
+<div class="metric-icon amber">!</div>
+<div><span>Tamper Alerts</span><strong id="metricAlerts">0</strong><small>Security attention
+                  required</small></div>
+</article>
+</div><section class="project-snapshot reveal-up">
+<article class="snapshot-card mission-card" data-tilt="" data-tilt-strength="3">
+<div class="snapshot-index">01</div>
+<p class="eyebrow">MISSION</p>
+<h3>Protect portable data beyond a simple password.</h3>
+<p>Bind each pendrive to a registered identity, verify access, record security activity and unlock protected files only after authorization.</p>
+</article>
+<article class="snapshot-card layers-card" data-tilt="" data-tilt-strength="3">
+<div aria-hidden="true" class="layer-stack"><i></i><i></i><i></i><i></i></div>
+<p class="eyebrow">PROTECTION LAYERS</p>
+<h3>Identity → Authentication → Monitoring → Vault</h3>
+<p>A layered workflow combines device identification, owner credentials, activity intelligence and encrypted file storage.</p>
+</article>
+<article class="snapshot-card platforms-card" data-tilt="" data-tilt-strength="3">
+<div aria-hidden="true" class="platform-spheres"><i>W</i><i>A</i></div>
+<p class="eyebrow">PLATFORMS</p>
+<h3>Windows computers and Android OTG devices.</h3>
+<p>Separate clients share the same registered USB identity and report device-specific access activity.</p>
+</article>
+</section>
+<div class="dashboard-grid">
+<section class="panel chart-panel panel-3d">
+<div class="panel-head">
+<div>
+<p class="eyebrow">ACTIVITY</p>
+<h3>Recent access trend</h3>
+</div><select aria-label="Recent activity range" id="trendRange" title="Recent activity range">
+<option value="12">Last 12 events</option>
+<option value="24">Last 24 events</option>
+<option value="50">Last 50 events</option>
+</select>
+</div>
+<div aria-label="Recent access activity chart" class="bar-chart" id="activityChart"></div>
+<div class="chart-legend"><span><i class="legend granted"></i>Granted</span><span><i class="legend denied"></i>Denied</span><span><i class="legend connection"></i>Connection
+                  event</span></div>
+</section>
+<section class="panel status-panel panel-3d">
+<div class="panel-head">
+<div>
+<p class="eyebrow">DEVICE STATUS</p>
+<h3>Connected hosts</h3>
+</div><button class="text-button" data-go="devices">View all</button>
+</div>
+<div class="device-status-list" id="connectedList">
+<div class="empty-state compact">No connected USB devices.</div>
+</div>
+</section>
+</div>
+<section class="panel panel-3d">
+<div class="panel-head">
+<div>
+<p class="eyebrow">LATEST ACTIVITY</p>
+<h3>Recent access events</h3>
+</div><button class="text-button" data-go="logs">Open access logs</button>
+</div>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>USB</th>
+<th>Host</th>
+<th>Platform</th>
+<th>Location</th>
+<th>Latitude</th>
+<th>Longitude</th>
+<th>Time</th>
+<th>Connection</th>
+<th>Access</th>
+</tr>
+</thead>
+<tbody id="recentEventsBody">
+<tr>
+<td colspan="9">
+<div class="empty-state">No access events yet.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section class="page" data-title="Register USB" id="page-register">
+<div class="section-heading">
+<div>
+<p class="eyebrow">NEW DEVICE</p>
+<h2>Register a USB Guardian pendrive</h2>
+<p>Create the device identity used by the Windows and Android clients.</p>
+</div>
+</div>
+<div class="two-column-form">
+<form class="panel form-panel panel-3d" id="registrationForm">
+<div class="form-grid">
+<label><span>USB name</span><input id="deviceNameInput" maxlength="60" name="device_name" placeholder="PROJECT_USB" required=""/></label>
+<label><span>Owner name</span><input id="ownerInput" maxlength="80" name="owner" placeholder="Vignesh" required=""/></label>
+<label><span>Login username</span><input autocomplete="username" id="usernameInput" maxlength="60" name="login_username" placeholder="admin" required=""/></label>
+<label><span>Password</span>
+<div class="password-field"><input autocomplete="new-password" id="passwordInput" minlength="4" name="password" placeholder="Minimum 4 characters" required="" type="password"/><button data-toggle-password="passwordInput" type="button">Show</button></div>
+</label>
+<label class="full"><span>Confirm password</span>
+<div class="password-field"><input autocomplete="new-password" id="confirmPasswordInput" minlength="4" placeholder="Repeat the password" required="" type="password"/><button data-toggle-password="confirmPasswordInput" type="button">Show</button></div>
+</label>
+</div>
+<div class="form-note"><strong>Privacy note:</strong> Your password is protected securely and is never written into <code>usb_guardian.id</code>.</div>
+<button class="primary-button" id="registerSubmitButton" type="submit">Register USB</button>
+</form>
+<aside class="panel result-card panel-3d" id="registrationResult">
+<div class="result-placeholder">
+<div class="result-icon">▣</div>
+<h3>Device identity will appear here</h3>
+<p>After registration, download the generated <code>usb_guardian.id</code> and copy it to the pendrive
+                  root.</p>
+</div>
+</aside>
+</div>
+</section>
+<section class="page" data-title="Registered Devices" id="page-devices">
+<div class="section-heading">
+<div>
+<p class="eyebrow">DEVICE INVENTORY</p>
+<h2>Registered USB devices</h2>
+<p>View registration data, current connection state, and last-seen host.</p>
+</div><button class="primary-button small" data-go="register">Register USB</button>
+</div>
+<section class="panel panel-3d">
+<div class="toolbar">
+<div class="search-box"><span>⌕</span><input id="deviceSearch" placeholder="Search UID, USB name, owner or username"/></div><select aria-label="Filter devices by connection status" id="deviceStatusFilter" title="Filter devices by connection status">
+<option value="all">All statuses</option>
+<option value="CONNECTED">Connected</option>
+<option value="DISCONNECTED">Disconnected</option>
+<option value="UNKNOWN">Unknown</option>
+</select>
+</div>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Device UID</th>
+<th>USB Name</th>
+<th>Owner</th>
+<th>Login Username</th>
+<th>Registered</th>
+<th>Status</th>
+<th>Last Seen</th>
+<th>Host</th>
+<th></th>
+</tr>
+</thead>
+<tbody id="devicesBody">
+<tr>
+<td colspan="9">
+<div class="empty-state">No registered devices found.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section class="page" data-title="Access Logs" id="page-logs">
+<div class="section-heading">
+<div>
+<p class="eyebrow">AUDIT TRAIL</p>
+<h2>USB access logs</h2>
+<p>Review individual activity records and remove them when required.</p>
+</div>
+<div class="heading-actions"><button class="danger-button small" disabled="" id="deleteSelectedEventsButton" type="button">Delete selected</button><button class="secondary-button small" id="exportCsvButton" type="button">Export CSV</button></div>
+</div>
+<section class="panel panel-3d">
+<div class="toolbar multi">
+<div class="search-box"><span>⌕</span><input id="logSearch" placeholder="Search device, host, location or status"/></div><select aria-label="Filter logs by access result" id="accessFilter" title="Filter logs by access result">
+<option value="all">All access results</option>
+<option value="GRANTED">Granted</option>
+<option value="DENIED">Denied</option>
+<option value="CONNECTION">Connection events</option>
+<option value="ACTIVATION">Activation events</option>
+</select><select aria-label="Filter logs by platform" id="platformFilter" title="Filter logs by platform">
+<option value="all">All platforms</option>
+<option value="Windows">Windows</option>
+<option value="Android">Android</option>
+</select><select aria-label="Filter logs by connection status" id="connectionFilter" title="Filter logs by connection status">
+<option value="all">All connections</option>
+<option value="CONNECTED">Connected</option>
+<option value="DISCONNECTED">Disconnected</option>
+</select>
+</div>
+<div class="table-wrap wide">
+<table class="logs-table">
+<thead>
+<tr>
+<th><input aria-label="Select all visible records" class="table-checkbox" id="selectAllEvents" type="checkbox"/></th>
+<th>Device UID</th>
+<th>USB Name</th>
+<th>Owner</th>
+<th>Login Username</th>
+<th>Host User</th>
+<th>Host Device</th>
+<th>Platform</th>
+<th>Location</th>
+<th>Latitude</th>
+<th>Longitude</th>
+<th>Time</th>
+<th>Connection</th>
+<th>Access Status</th>
+<th>Tamper</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody id="logsBody">
+<tr>
+<td colspan="16">
+<div class="empty-state">No access events found.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section class="page" data-title="Security Alerts" id="page-alerts">
+<div class="section-heading">
+<div>
+<p class="eyebrow">SECURITY CENTRE</p>
+<h2>Security alerts</h2>
+<p>Tamper events, missing vaults, repeated denials and suspicious access appear here.</p>
+</div>
+</div>
+<div class="alert-summary">
+<article><span class="alert-dot critical"></span>
+<div><strong id="criticalAlertCount">0</strong><small>Critical</small></div>
+</article>
+<article><span class="alert-dot warning"></span>
+<div><strong id="warningAlertCount">0</strong><small>Warnings</small></div>
+</article>
+<article><span class="alert-dot info"></span>
+<div><strong id="infoAlertCount">0</strong><small>Information</small></div>
+</article>
+</div>
+<div class="alerts-list" id="alertsList">
+<div class="empty-state">No security alerts detected.</div>
+</div>
+</section>
+<section class="page" data-title="Project Overview" id="page-project">
+<div class="section-heading project-heading">
+<div>
+<p class="eyebrow">PROJECT EXPERIENCE</p>
+<h2>Smart USB Guardian</h2>
+<p>A real-time secure portable storage monitoring system designed for safer file access across Windows and Android devices.</p>
+</div>
+<div class="project-version-badge"><span>CORE</span><strong>3-LAYER</strong><small>IDENTIFY · VERIFY · PROTECT</small></div>
+</div>
+<section class="project-hero-grid">
+<article class="project-story panel-3d" data-tilt="" data-tilt-strength="2">
+<p class="eyebrow">PROBLEM STATEMENT</p>
+<h3>Traditional pendrives provide storage, but very little awareness or control.</h3>
+<p>A lost or shared USB drive can expose private information without showing who connected it, where it was used or whether access was rejected. Smart USB Guardian adds a software protection layer around portable storage.</p>
+<div class="story-points">
+<span>Unknown device usage</span><span>Unverified file access</span><span>No activity visibility</span><span>Portable data exposure</span>
+</div>
+</article>
+<article class="project-solution panel-3d" data-tilt="" data-tilt-strength="4">
+<div aria-hidden="true" class="solution-emblem"><div>G</div><span></span></div>
+<p class="eyebrow">SOLUTION</p>
+<h3>A connected protection workflow for every registered USB.</h3>
+<p>The system identifies the drive, requests authorized credentials, records access context and opens the encrypted vault only after successful validation.</p>
+</article>
+</section>
+<section class="component-section">
+<div class="section-mini-head"><div><p class="eyebrow">SYSTEM COMPONENTS</p><h3>Five parts working as one security ecosystem</h3></div></div>
+<div class="component-grid">
+<article class="component-card panel-3d" data-tilt="" data-tilt-strength="3"><span class="component-no">01</span><div class="component-icon">⌂</div><h4>Owner Command Center</h4><p>Account-based dashboard for USB registration, live status, activity review, alerts and device management.</p></article>
+<article class="component-card panel-3d" data-tilt="" data-tilt-strength="3"><span class="component-no">02</span><div class="component-icon">◉</div><h4>Windows USB Monitor</h4><p>A background monitor detects a registered pendrive and launches its Guardian client on supported computers.</p></article>
+<article class="component-card panel-3d" data-tilt="" data-tilt-strength="3"><span class="component-no">03</span><div class="component-icon">▣</div><h4>USB Guardian Client</h4><p>Reads the device identity, captures system context, verifies credentials and controls protected vault access.</p></article>
+<article class="component-card panel-3d" data-tilt="" data-tilt-strength="3"><span class="component-no">04</span><div class="component-icon">◇</div><h4>Android OTG Client</h4><p>Detects OTG-connected storage, reads the identity file and reports mobile access with location context.</p></article>
+<article class="component-card panel-3d" data-tilt="" data-tilt-strength="3"><span class="component-no">05</span><div class="component-icon">⬡</div><h4>Encrypted File Vault</h4><p>Private files remain inside an encrypted container and become available only after successful authentication.</p></article>
+</div>
+</section>
+<section class="workflow-section panel-3d">
+<div class="section-mini-head"><div><p class="eyebrow">CLEAR WORKFLOW</p><h3>From insertion to protected access</h3></div><span class="workflow-label">AUTOMATED SECURITY FLOW</span></div>
+<div class="workflow-track">
+<article><span>01</span><div class="flow-node">USB</div><h4>Connect</h4><p>A registered pendrive is connected to a supported Windows or Android device.</p></article>
+<article><span>02</span><div class="flow-node">ID</div><h4>Identify</h4><p>The client reads <code>usb_guardian.id</code> and matches the registered device identity.</p></article>
+<article><span>03</span><div class="flow-node">✓</div><h4>Authenticate</h4><p>The user submits the assigned USB username and password for validation.</p></article>
+<article><span>04</span><div class="flow-node">●</div><h4>Record</h4><p>Connection, device, time, platform, location and access result are recorded.</p></article>
+<article><span>05</span><div class="flow-node">⬡</div><h4>Protect</h4><p>Valid access opens the encrypted vault; rejected attempts remain blocked and visible.</p></article>
+</div>
+</section>
+<section class="capability-grid">
+<article class="capability-card"><span>IDENTITY</span><h4>Unique USB registration</h4><p>Creates a distinct identity file for each owner-managed pendrive.</p></article>
+<article class="capability-card"><span>ACCESS</span><h4>Granted and denied tracking</h4><p>Builds a clear audit trail of successful and rejected authentication attempts.</p></article>
+<article class="capability-card"><span>CONTEXT</span><h4>Device and location awareness</h4><p>Captures Windows host details or Android device and GPS information.</p></article>
+<article class="capability-card"><span>STATUS</span><h4>Connected and disconnected state</h4><p>Shows whether registered portable storage is currently active or removed.</p></article>
+<article class="capability-card"><span>ALERTS</span><h4>Activation and security alerts</h4><p>Notifies the owner when a registered pendrive becomes active and highlights denials or tamper conditions.</p></article>
+<article class="capability-card"><span>PRIVACY</span><h4>Encrypted private storage</h4><p>Combines access control with a VeraCrypt-protected container for sensitive files.</p></article>
+</section>
+</section><section class="page" data-title="Preferences &amp; Account" id="page-settings">
+<div class="section-heading">
+<div>
+<p class="eyebrow">PERSONAL CONTROL</p>
+<h2>Preferences and account</h2>
+<p>Manage live monitoring behaviour, install client tools and control your owner account.</p>
+</div>
+</div>
+<div class="settings-grid public-settings-grid">
+<form class="panel form-panel preference-card panel-3d" id="settingsForm">
+<div aria-hidden="true" class="preference-symbol">↻</div>
+<p class="eyebrow">MONITORING PREFERENCE</p>
+<h3>Live activity refresh</h3>
+<p class="help-text">Keep device status, access records and alerts refreshed automatically while this dashboard is open.</p>
+<label class="switch-row"><span><strong>Automatic updates</strong><small>Keep the command center current</small></span><input checked="" id="autoRefreshInput" type="checkbox"/><i></i></label>
+<label class="switch-row"><span><strong>Pendrive activation alerts</strong><small>Show an owner alert when a registered USB becomes active</small></span><input checked="" id="activationNotificationsInput" type="checkbox"/><i></i></label>
+<button class="secondary-button" id="enableBrowserNotificationsButton" type="button">Enable device notifications</button>
+<p class="help-text" id="notificationPermissionStatus">Browser notification permission has not been checked.</p>
+<button class="primary-button" type="submit">Save preference</button>
+</form>
+<section class="panel system-card readiness-card panel-3d">
+<div aria-hidden="true" class="readiness-orbit"><i></i><i></i><strong>G</strong></div>
+<p class="eyebrow">PROTECTION READINESS</p>
+<h3>Guardian workspace</h3>
+<p class="help-text">Your dashboard automatically checks availability and keeps monitoring tools synchronized while you are signed in.</p>
+<div class="readiness-state"><span class="status-dot online"></span><div><strong>Secure workspace enabled</strong><small id="lastRefreshStatus">Waiting for first activity refresh</small></div></div>
+</section>
+</div>
+<section class="panel account-panel download-center panel-3d" id="usbMonitorSetupPanel">
+<div class="download-copy">
+<p class="eyebrow">WINDOWS CLIENT TOOLS</p>
+<h3>Enable automatic USB detection</h3>
+<p class="help-text">Install the USB Monitor once on each Windows computer that should automatically detect and open registered Guardian pendrives.</p>
+<div class="install-steps"><span><b>1</b> Download setup</span><span><b>2</b> Extract package</span><span><b>3</b> Run installer once</span></div>
+</div>
+<div aria-hidden="true" class="download-cube"><div>↓</div><span></span><i></i></div>
+<div class="account-actions download-actions">
+<button class="primary-button" id="downloadUsbMonitorInstallerButton" type="button">Download One-Click Setup</button>
+<button class="secondary-button" id="downloadUsbMonitorExeButton" type="button">Download Monitor EXE</button>
+</div>
+</section>
+<section class="panel account-panel owner-account-card panel-3d">
+<div>
+<p class="eyebrow">OWNER ACCOUNT</p>
+<h3 id="accountName">Signed-in owner</h3>
+<p class="help-text" id="accountEmail">Loading account…</p>
+</div>
+<dl>
+<div><dt>Account created</dt><dd id="accountCreatedAt">-</dd></div>
+<div><dt>Owned devices</dt><dd id="accountDeviceCount">0</dd></div>
+</dl>
+<div class="account-actions"><button class="secondary-button" id="logoutButton" type="button">Logout</button><button class="danger-button" id="openDeleteAccountButton" type="button">Delete account</button></div>
+<p class="danger-note">Deleting the account permanently removes its registered devices, connection states and access records.</p>
+</section>
+</section>
+</main>
+</div>
+</div>
+<div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+<div aria-live="polite" class="toast-container" id="toastContainer"></div>
+<dialog class="modal" id="deviceModal">
+<div class="modal-head">
+<div>
+<p class="eyebrow">DEVICE DETAILS</p>
+<h3 id="modalDeviceTitle">USB Device</h3>
+</div><button class="icon-button" id="closeDeviceModal">×</button>
+</div>
+<div class="detail-grid" id="modalDeviceDetails"></div>
+<div class="modal-actions"><button class="danger-button" id="deleteDeviceButton" type="button">Delete device +
+        logs</button><button class="secondary-button" id="copyIdentityButton" type="button">Copy identity
+        JSON</button><button class="secondary-button" id="downloadDeviceWindowsPackage" type="button">Windows
+        package</button><button class="primary-button" id="downloadIdentityButton" type="button">Download
+        usb_guardian.id</button></div>
+</dialog>
+<dialog class="modal danger-modal" id="deleteAccountModal">
+<form id="deleteAccountForm">
+<div class="modal-head">
+<div>
+<p class="eyebrow">PERMANENT ACTION</p>
+<h3>Delete owner account</h3>
+</div><button class="icon-button" id="closeDeleteAccountModal" type="button">×</button>
+</div>
+<div class="danger-modal-body">
+<p>This deletes your account, registered USB devices, access logs, and connection records. Enter your account
+          password to confirm.</p><label><span>Account password</span><input autocomplete="current-password" id="deleteAccountPassword" required="" type="password"/></label>
+</div>
+<div class="modal-actions"><button class="secondary-button" id="cancelDeleteAccountButton" type="button">Cancel</button><button class="danger-button" id="confirmDeleteAccountButton" type="submit">Delete permanently</button></div>
+</form>
+</dialog>
+<script src="config.js"></script>
+<script src="app.js"></script><script src="experience.js"></script>
+</body>
+</html>

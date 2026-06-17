@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">USB Guardian Mobile</string>
+    <string name="select_usb_root">Open Existing Registered USB</string>
+    <string name="register_usb">Register New USB from Android</string>
+    <string name="authenticate">Authenticate &amp; Report</string>
+    <string name="open_vault">Open Encrypted Vault</string>
+</resources>
